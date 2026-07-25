@@ -18,16 +18,11 @@ export default function Login() {
     setError('')
 
     try {
-      // ১. ব্যাকএন্ডে লগইন রিকোয়েস্ট পাঠানো
       const response = await axios.post('http://localhost:5000/api/auth/login', form)
-
-      // ২. localStorage-এ Token এবং User Info সেভ করা (Step 8)
       localStorage.setItem('token', response.data.token)
       localStorage.setItem('user', JSON.stringify(response.data.user))
 
       console.log('Login Successful, Token Saved!')
-
-      // ৩. সফল লগইনের পর ড্যাশবোর্ডে রিডাইরেক্ট করা
       navigate('/dashboard')
 
     } catch (err) {
@@ -44,7 +39,7 @@ export default function Login() {
           <p className="text-gray-600 mt-2">Sign in to your account</p>
         </div>
 
-        {/* ভুল পাসওয়ার্ড বা ইমেইল দিলে রেড এলার্ট দেখাবে */}
+        {}
         {error && (
           <div className="mb-4 p-3 bg-red-100 text-red-700 text-sm rounded-lg text-center">
             {error}

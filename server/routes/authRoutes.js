@@ -12,11 +12,10 @@ router.post("/register", (req, res) => {
     });
 });
 
-// 2. Real Login Route (আসল JWT টোকেন জেনারেটর)
+// 2. Real Login Route
 router.post("/login", (req, res) => {
     const { email, password } = req.body;
 
-    // আসল JWT টোকেন তৈরি
     const token = jwt.sign(
         { id: "65a123456789", email: email },
         process.env.JWT_SECRET || "secret123",

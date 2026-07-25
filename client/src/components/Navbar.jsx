@@ -9,9 +9,7 @@ export default function Navbar({ setSidebarOpen }) {
   
   const navigate = useNavigate()
 
-  // LocalStorage থেকে ইউজারের তথ্য পাওয়ার চেষ্টা করা
   const storedUser = JSON.parse(localStorage.getItem('user')) || { name: 'User' }
-  // নামের প্রথম অক্ষর দিয়ে Avatar তৈরি (যেমন: John Doe -> J)
   const userInitial = storedUser.name ? storedUser.name.charAt(0).toUpperCase() : 'U'
 
   // Logout Handler (Step 9)

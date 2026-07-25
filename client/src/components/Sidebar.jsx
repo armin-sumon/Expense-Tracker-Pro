@@ -13,14 +13,10 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
   // Step 9: Logout Handler
   const handleLogout = () => {
-    // ১. ব্রাউজারের Storage থেকে টোকেন ও ইউজার ডাটা ডিলিট করা
     localStorage.removeItem('token')
     localStorage.removeItem('user')
 
-    // ২. সাইডবার বন্ধ করা (Mobile view-এর জন্য)
     if (setSidebarOpen) setSidebarOpen(false)
-
-    // ৩. ইউজারকে Login পেজে পাঠানো
     navigate('/login')
   }
 

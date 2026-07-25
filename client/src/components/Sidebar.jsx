@@ -11,7 +11,16 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
     { name: 'Profile', path: '/profile', icon: <FaUser /> },
   ]
 
+  // Step 9: Logout Handler
   const handleLogout = () => {
+    // ১. ব্রাউজারের Storage থেকে টোকেন ও ইউজার ডাটা ডিলিট করা
+    localStorage.removeItem('token')
+    localStorage.removeItem('user')
+
+    // ২. সাইডবার বন্ধ করা (Mobile view-এর জন্য)
+    if (setSidebarOpen) setSidebarOpen(false)
+
+    // ৩. ইউজারকে Login পেজে পাঠানো
     navigate('/login')
   }
 
@@ -61,7 +70,7 @@ export default function Sidebar({ sidebarOpen, setSidebarOpen }) {
         <div className="absolute bottom-0 w-full p-4 border-t">
           <button 
             onClick={handleLogout}
-            className="flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100 transition-colors"
+            className="flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
           >
             <FaSignOutAlt className="mr-3 text-lg" />
             Logout
